@@ -3,17 +3,159 @@
 This repository holds the raw measurements (per-run logs and result CSVs)
 behind the figures and numbers of the Metis paper. The code, the experiment
 scripts, and the figure scripts are in
-[sayakaaa00/Metis](https://github.com/sayakaaa00/Metis), which
-includes this repository as the submodule `experiments/data/`.
-`experiments/figures/make_figures.sh` regenerates every figure of the
-paper from this repository, and the output matches the paper's figures pixel for pixel. The experiment
-scripts in `experiments/run/` write new runs in the same layout.
+[sayakaaa00/Metis](https://github.com/sayakaaa00/Metis), which includes this
+repository as the submodule `experiments/data/`. The experiment scripts in
+`experiments/run/` write new runs in the same layout.
 
 Only the runs that the paper's figures and numbers use are included. Log files
 are copied unchanged from the working directory in which they were measured;
 some are renamed to a common pattern. Result CSVs are filtered or concatenated
 by row (header and values unchanged). `MANIFEST.tsv` lists the origin of every
 directory and file.
+
+## Figures of the paper
+
+Each figure below is the version in the paper ([figures/pdf/](figures/pdf):
+the PDFs included by the paper; `figures/figNN.png`: previews). For every
+figure, the table gives the data in this repository and the script in
+[Metis/experiments/figures](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures) that plots it
+(`experiments/figures/make_figures.sh` runs them all).
+
+The scripts plot the same data as the paper. The paper versions were redrawn
+afterwards: one PDF per benchmark, a separate legend, and adjusted fonts and
+labels. The data is unchanged, except that Fig. 7 adds two series. Fig. 9(b) is
+identical to the script's output.
+
+### Fig. 1: Throughput of Silo, Cicada, and ERMIA vs. Silo with the best active thread count (YCSB)
+
+<img src="figures/fig01.png" width="480">
+
+| | |
+|---|---|
+| Data | [ycsb/fixed](ycsb/fixed) (Silo, Cicada, ERMIA), [ycsb/oracle/skew_0.7-0.999](ycsb/oracle/skew_0.7-0.999) |
+| Script | [`plot_intro_fixed_nometis.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_intro_fixed_nometis.py) |
+| Runs | Mean of 2 runs |
+
+### Fig. 2: Throughput of Silo vs. active thread count at skew 0 (a) and 0.9 (b)
+
+<img src="figures/fig02.png" width="520">
+
+| | |
+|---|---|
+| Data | [ycsb/oracle/skew_0_0.5_0.9](ycsb/oracle/skew_0_0.5_0.9) |
+| Script | [`plot_tps_vs_threads_lowhigh.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_tps_vs_threads_lowhigh.py) |
+| Runs | Mean of 2 runs |
+
+### Fig. 3: Breakdown of worker-thread time of Silo vs. skew
+
+<img src="figures/fig03.png" width="480">
+
+| | |
+|---|---|
+| Data | [ycsb/breakdown](ycsb/breakdown) |
+| Script | [`plot_breakdown_vs_skew.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_breakdown_vs_skew.py) |
+| Runs | Time shares: sum of 2 runs; throughput and abort rate: mean of 2 runs |
+
+### Fig. 4: Throughput of Silo under fixed backoff durations
+
+<img src="figures/fig04.png" width="480">
+
+| | |
+|---|---|
+| Data | [ycsb/backoff_constant](ycsb/backoff_constant) |
+| Script | [`plot_backoff_sensitivity.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_backoff_sensitivity.py) |
+| Runs | Mean of 2 runs |
+
+### Fig. 5: Throughput of Silo vs. active thread count: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig05.png" width="500">
+
+| | |
+|---|---|
+| Data | [ycsb/oracle/skew_0.7-0.999](ycsb/oracle/skew_0.7-0.999), [tpcc/oracle](tpcc/oracle) |
+| Script | [`plot_motivation_tps_vs_threads.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_motivation_tps_vs_threads.py) |
+| Runs | Mean of 2 runs |
+
+### Fig. 6: Overview of Metis
+
+<img src="figures/fig06.png" width="700">
+
+| | |
+|---|---|
+| Data | None (diagram) |
+| Script | None |
+| Runs | None |
+
+### Fig. 7: Throughput across contention levels: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig07.png" width="480">
+
+| | |
+|---|---|
+| Data | [ycsb/fixed](ycsb/fixed), [tpcc/fixed](tpcc/fixed) (`results.csv`: baselines; `results_metis.csv`: Metis), [tpcc/fixed/ermia_3s](tpcc/fixed/ermia_3s) (ERMIA on TPC-C), `*/oracle` |
+| Script | [`plot_eval_static.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_static.py) |
+| Runs | Mean of 2 runs |
+| Note | The script draws Metis, Silo, Cicada, and ERMIA; the paper version also draws Oracle and Silo-BO (`silo_cbo_tuned`) from the same files. |
+
+### Fig. 8: Active thread count of Metis and hill climbing in the first 150 control periods: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig08.png" width="1000">
+
+| | |
+|---|---|
+| Data | [ycsb/fixed/logs](ycsb/fixed/logs) (Metis), [ycsb/hill_climbing_10ms_log](ycsb/hill_climbing_10ms_log), [tpcc/fixed/logs](tpcc/fixed/logs) (`*.trace.log`) |
+| Script | [`plot_eval_static_time.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_static_time.py) |
+| Runs | Run 1 |
+
+### Fig. 9: Throughput over time on dynamic workloads: (a) YCSB Y1, (b) TPC-C D1
+
+<img src="figures/fig09.png" width="480">
+
+| | |
+|---|---|
+| Data | [ycsb/dynamic](ycsb/dynamic), [tpcc/dynamic](tpcc/dynamic) (`*.log`, `*.trace.log`) |
+| Script | [`plot_eval_dynamic_tps.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic_tps.py), [`plot_eval_dynamic_tps_tpcc.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic_tps_tpcc.py) |
+| Runs | Run 1, except Cicada in (a) (run 2; run 1 stops committing at 38 s) and Metis in (b) (run 2) |
+
+### Fig. 10: Throughput per control period in the runs of Fig. 8: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig10.png" width="1000">
+
+| | |
+|---|---|
+| Data | As Fig. 8 |
+| Script | [`plot_eval_static_tps.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_static_tps.py) |
+| Runs | Run 1 |
+
+### Fig. 11: Active thread count on dynamic workloads: (a) YCSB Y4, (b) TPC-C D11
+
+<img src="figures/fig11.png" width="1000">
+
+| | |
+|---|---|
+| Data | [ycsb/dynamic_hill_climbing](ycsb/dynamic_hill_climbing), [tpcc/dynamic_hill_climbing](tpcc/dynamic_hill_climbing) |
+| Script | [`plot_eval_dynamic.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic.py) |
+| Runs | Run 1 |
+
+### Fig. 12: Throughput across contention levels in MySQL: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig12.png" width="470">
+
+| | |
+|---|---|
+| Data | [Tatzhiro/MySQL-Metis-experiments](https://github.com/Tatzhiro/MySQL-Metis-experiments) (`results/`) |
+| Script | In MySQL-Metis-experiments |
+| Runs | See that repository |
+
+### Fig. 13: Silo with the best fixed backoff vs. the best fixed active thread count: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig13.png" width="480">
+
+| | |
+|---|---|
+| Data | [ycsb/backoff_constant](ycsb/backoff_constant), [tpcc/backoff_constant](tpcc/backoff_constant), `*/oracle` |
+| Script | [`plot_eval_backoff.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_backoff.py) |
+| Runs | Mean of 2 runs |
 
 ## Machine
 
