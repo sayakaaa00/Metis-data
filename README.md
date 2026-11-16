@@ -4,10 +4,10 @@ This repository holds the raw measurements (per-run logs and result CSVs)
 behind the figures and numbers of the Metis paper. The code, the experiment
 scripts, and the figure scripts are in
 [sayakaaa00/ccbench-Metis](https://github.com/sayakaaa00/ccbench-Metis), which
-includes this repository as the submodule `data/`.
-`experiments/metis/figures/make_figures.sh` regenerates every figure of the
+includes this repository as the submodule `experiments/data/`.
+`experiments/figures/make_figures.sh` regenerates every figure of the
 paper from this repository, and the output matches the paper's figures pixel for pixel. The experiment
-scripts in `experiments/metis/` write new runs in the same layout.
+scripts in `experiments/` write new runs in the same layout.
 
 Only the runs that the paper's figures and numbers use are included. Log files
 are copied unchanged from the working directory in which they were measured;
@@ -51,8 +51,9 @@ then the SMT siblings). TSC: 2900 clocks per µs.
 | oracle | Silo with the best fixed active thread count (`*/oracle`) |
 
 The flags in the logs use the names from the time of measurement
-(`--metis_v2_*`, `--linucb_model_path`); in ccbench-Metis these are `--metis_*`
-and `--metis_model_path`. Runs of the current scripts write `metis` instead of `metis_v2`.
+(`--metis_v2_*`, `--linucb_model_path`, `--tam_*`, log tag `[TAM sample]`); in
+ccbench-Metis these are `--metis_*`, `--metis_model_path`, `--throttle_*`
+(`--tam_update_period_us` is `--throttle_period_us`), and `[Throttle sample]`. Runs of the current scripts write `metis` instead of `metis_v2`.
 Hill-climbing runs are named `hill_climbing` in the CSVs and file names; the log contents and
 flags keep the controller's name at measurement time.
 
@@ -69,7 +70,7 @@ Metis chooses among even active thread counts. Two training sets exist:
 `train/<set>/state_<s>_run<r>.txt` holds the ridge-regression statistics of one
 30-s training run. A model sums them over runs. `all.txt` pools every level, and
 `loo_<s>.txt` leaves level `<s>` out (the static runs of `<s>` use it). The
-models in ccbench-Metis (`experiments/metis/models`) are these files with the
+models in ccbench-Metis (`experiments/models`) are these files with the
 current header (`metis_model 1 ...` instead of `metis_v2_model 1 A 1 ...`).
 
 ## Layout
