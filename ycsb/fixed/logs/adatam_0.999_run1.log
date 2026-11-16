@@ -1,0 +1,22 @@
+#FLAGS_clocks_per_us:	2900
+#FLAGS_epoch_time:	40
+#FLAGS_extime:		10
+#FLAGS_thread_num:	96
+TAM active_threads logs will be written to: "experiments/paper_replication/logs/tam_active_threads_20261103_101226.log"
+#FLAGS_ycsb_max_ope:	10
+#FLAGS_ycsb_rmw:	0
+#FLAGS_ycsb_rratio:	50
+#FLAGS_ycsb_tuple_num:	10000
+#FLAGS_ycsb_zipf_skew:	0.999
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 0: KEY_SIZE 8: MASSTREE_USE 1: NO_WAIT_LOCKING_IN_VALIDATION 1: PARTITION_TABLE 0: PROCEDURE_SORT 0: SLEEP_READ_PHASE 0: VAL_SIZE 4: WAL 0
+actual_extime:	10
+success_forwarding_:	0
+abort_counts_:	60547132
+batch_abort_counts_:	0
+commit_counts_:	17172427
+batch_commit_counts_:	0
+maxrss:	179604 kB
+abort_rate:	0.7790
+batch_abort_rate:	-nan
+latency[ns]:	55903.5943
+throughput[tps]:	1717242

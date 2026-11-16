@@ -1,0 +1,42 @@
+extime=30 runs=2 methods=['metis_v2', 'adatam', 'silo_nobo', 'silo_bo', 'cicada', 'ermia'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=3e1e02c62084da0f4536680fae6cf6f8cd93e058adc865425074848225409fd7
+adatam: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=3e1e02c62084da0f4536680fae6cf6f8cd93e058adc865425074848225409fd7
+silo_nobo: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_silo_without_backoff sha256=3e1e02c62084da0f4536680fae6cf6f8cd93e058adc865425074848225409fd7
+silo_bo: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_silo_with_backoff sha256=c84474ae4434cc10c315c3fed857e1e515df12092af6d38e5ed8629eb55a3ba6
+cicada: /home/ubuntu/ccbench-adaTAM/build_release/cc/cicada/tpcc_cicada.exe sha256=70f2574b4de76223f5ce2024f931fcbb43f544c9180ffab087b4732789110149
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/tpcc_ermia.exe sha256=531851d0c8e84f24279cea3b48865d45214415ad33e5dd88fb9e6c391cd41f51
+extime=30 runs=2 methods=['metis_v2', 'adatam', 'silo_nobo', 'silo_bo', 'cicada', 'ermia'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=3e1e02c62084da0f4536680fae6cf6f8cd93e058adc865425074848225409fd7
+adatam: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=3e1e02c62084da0f4536680fae6cf6f8cd93e058adc865425074848225409fd7
+silo_nobo: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_silo_without_backoff sha256=3e1e02c62084da0f4536680fae6cf6f8cd93e058adc865425074848225409fd7
+silo_bo: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_silo_with_backoff sha256=c84474ae4434cc10c315c3fed857e1e515df12092af6d38e5ed8629eb55a3ba6
+cicada: /home/ubuntu/ccbench-adaTAM/build_release/cc/cicada/tpcc_cicada.exe sha256=70f2574b4de76223f5ce2024f931fcbb43f544c9180ffab087b4732789110149
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/tpcc_ermia.exe sha256=531851d0c8e84f24279cea3b48865d45214415ad33e5dd88fb9e6c391cd41f51
+extime=30 runs=2 methods=['metis_v2'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=18b565d07822f126ddf6bc8520cea046c13add0680da13b04916866ea3ed68a1
+extime=30 runs=2 methods=['metis_v2'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=31cffb53600bfa6fdab3126cc688dbe65af28c7cd1f9ad8dee3271c29b9ae25a
+extime=30 runs=2 methods=['adatam_default'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+adatam_default: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=31cffb53600bfa6fdab3126cc688dbe65af28c7cd1f9ad8dee3271c29b9ae25a
+extime=30 runs=2 methods=['metis_v2'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=131392f23807a0344a7695c2733725e20fba0fcfb8460c4eefcd1f4ecbb01a77
+extime=30 runs=2 methods=['metis_v2'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=aa2baa89a83a746dd8b9dc7d376b0cdef3186b7b13a56f78ab80c736fe05af7e
+extime=30 runs=2 methods=['silo_bo', 'cicada', 'ermia'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+silo_bo: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_silo_with_backoff sha256=7edaa7d419de59bd42208e1b5e6bbecfbcb32ebaef2f9fd6e429743ada596618
+cicada: /home/ubuntu/ccbench-adaTAM/build_release/cc/cicada/tpcc_cicada.exe sha256=87413644716a61565ed71208f771cd1fa9d135387289829e7a9efed34c339cb7
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/tpcc_ermia.exe sha256=4605758ac0b103161011ece7ca11169fd5b4a818ca1d950c2e1c3e274d4098ad
+extime=30 runs=2 methods=['silo_bo_tuned'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+silo_bo_tuned: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_silo_with_backoff sha256=7edaa7d419de59bd42208e1b5e6bbecfbcb32ebaef2f9fd6e429743ada596618
+extime=30 runs=2 methods=['silo_cbo_tuned', 'cicada', 'ermia'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+silo_cbo_tuned: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_silo_with_backoff sha256=b1abe8ead1c9e6f49837f236b6f7ebfc0fda6f2f98aa6489bd4e2a98929da384
+cicada: /home/ubuntu/ccbench-adaTAM/build_release/cc/cicada/tpcc_cicada.exe sha256=d0608d77c428e6734d8fce7922b43f56c70a38ad69655882a449365a101d0f4a
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/tpcc_ermia.exe sha256=99caf60d7709aa8783bac76eab9081d25881c7c606918a7db837734527684f87
+extime=30 runs=2 methods=['ermia'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/tpcc_ermia.exe sha256=99caf60d7709aa8783bac76eab9081d25881c7c606918a7db837734527684f87
+extime=30 runs=2 methods=['ermia'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/tpcc_ermia.exe sha256=99caf60d7709aa8783bac76eab9081d25881c7c606918a7db837734527684f87
+extime=30 runs=2 methods=['metis_v2'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=b96af50362de5a4e15abf3d563f8bf7b0d71275c9a65bff2d4bcae1e4a51d694
+extime=30 runs=4 methods=['metis_v2'] states=['1', '2', '3', '4', '8', '16', '32', '96']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/tpcc_metis_test sha256=b96af50362de5a4e15abf3d563f8bf7b0d71275c9a65bff2d4bcae1e4a51d694

@@ -1,0 +1,22 @@
+#FLAGS_clocks_per_us:	2900
+#FLAGS_epoch_time:	40
+#FLAGS_extime:		10
+#FLAGS_thread_num:	96
+#FLAGS_ycsb_max_ope:	10
+#FLAGS_ycsb_rmw:	0
+#FLAGS_ycsb_rratio:	50
+#FLAGS_ycsb_tuple_num:	10000
+#FLAGS_ycsb_zipf_skew:	0.7
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 0: KEY_SIZE 8: MASSTREE_USE 1: NO_WAIT_LOCKING_IN_VALIDATION 1: PARTITION_TABLE 0: PROCEDURE_SORT 0: SLEEP_READ_PHASE 0: VAL_SIZE 4: WAL 0
+actual_extime:	10
+success_forwarding_:	0
+abort_counts_:	148259284
+batch_abort_counts_:	0
+commit_counts_:	38101460
+batch_commit_counts_:	0
+maxrss:	179184 kB
+abort_rate:	0.7955
+batch_abort_rate:	-nan
+latency[ns]:	25195.8849
+throughput[tps]:	3810146
+[BREAKDOWN] committed_cycles=459988078238 aborted_cycles=2252676798706 wait_committed_cycles=33487337490 wait_aborted_cycles=728656265446 n_committed=38101460 n_aborted=148259284 span_cycles=2784002371660 threads=96

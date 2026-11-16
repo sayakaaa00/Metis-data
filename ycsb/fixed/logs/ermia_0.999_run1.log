@@ -1,0 +1,28 @@
+#FLAGS_clocks_per_us:			2900
+#FLAGS_extime:				10
+#FLAGS_gc_inter_us:			10
+#FLAGS_max_ope:				10
+#FLAGS_pre_reserve_tmt_element:		100
+#FLAGS_pre_reserve_version:		10000
+#FLAGS_rmw:				0
+#FLAGS_rratio:				50
+#FLAGS_thread_num:			96
+#FLAGS_ycsb:				1
+#FLAGS_zipf_skew:			0
+#FLAGS_ycsb_max_ope:	10
+#FLAGS_ycsb_rmw:	0
+#FLAGS_ycsb_rratio:	50
+#FLAGS_ycsb_tuple_num:	10000
+#FLAGS_ycsb_zipf_skew:	0.999
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 1: MASSTREE_USE 1: KEY_SIZE 8: KEY_SORT 0: VAL_SIZE 4
+actual_extime:	10
+abort_counts_:	8231899
+batch_abort_counts_:	0
+commit_counts_:	2382496
+batch_commit_counts_:	0
+maxrss:	4572860 kB
+abort_rate:	0.7755
+batch_abort_rate:	-nan
+latency[ns]:	402939.7815
+throughput[tps]:	238249
+throughput[ops]:	2382496

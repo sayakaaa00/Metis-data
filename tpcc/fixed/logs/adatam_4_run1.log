@@ -1,0 +1,63 @@
+#FLAGS_clocks_per_us:	2900
+#FLAGS_epoch_time:	40
+#FLAGS_extime:		30
+#FLAGS_thread_num:	96
+TAM active_threads logs will be written to: "experiments/paper_replication/logs/tam_active_threads_20261103_092440.log"
+#FLAGS_tpcc_num_wh:	96
+#FLAGS_tpcc_num_items:	100000
+#FLAGS_tpcc_item_zipf_enable:	false
+#FLAGS_tpcc_active_warehouse_count:	4
+#FLAGS_tpcc_hot_item_count:	100
+#FLAGS_tpcc_hot_item_ratio:	0.000000
+#FLAGS_tpcc_home_warehouse_assignment:	random_per_transaction
+#FLAGS_tpcc_home_warehouse_seed:	1
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_hot_district_count:	10
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_retry_same_type:	true
+[start] load.
+[end] load.
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 0: KEY_SIZE 8: MASSTREE_USE 1: NO_WAIT_LOCKING_IN_VALIDATION 1: PARTITION_TABLE 0: PROCEDURE_SORT 0: SLEEP_READ_PHASE 0: VAL_SIZE 4: WAL 0
+actual_extime:	30
+success_forwarding_:	0
+abort_counts_:	6277340
+batch_abort_counts_:	0
+commit_counts_:	3353385
+batch_commit_counts_:	0
+maxrss:	27892192 kB
+abort_rate:	0.6518
+batch_abort_rate:	-nan
+latency[ns]:	858837.5276
+throughput[tps]:	111779
+Details per transaction type:
+  Transaction type: NewOrder
+    commits: 1507887
+    aborts: 470178
+    abort rate: 0.2377
+    latency[us]: 0.00
+  Transaction type: Payment
+    commits: 1442904
+    aborts: 46615
+    abort rate: 0.0313
+    latency[us]: 0.00
+  Transaction type: OrderStatus
+    commits: 134202
+    aborts: 16
+    abort rate: 0.0001
+    latency[us]: 0.00
+  Transaction type: Delivery
+    commits: 133903
+    aborts: 5573032
+    abort rate: 0.9765
+    latency[us]: 0.00
+  Transaction type: StockLevel
+    commits: 134489
+    aborts: 187499
+    abort rate: 0.5823
+    latency[us]: 0.00
+  Summary: 1507887,470178,1442904,46615,134202,16,133903,5573032,134489,187499,
+  All transaction total latencies: 0,0,0,0,0,

@@ -1,0 +1,35 @@
+extime=10 runs=2 methods=['metis_v2', 'adatam', 'silo_nobo', 'silo_bo', 'cicada', 'ermia'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=dc0b872f20faa21904fb38987dc6c13433cdb70b442ae77b7b3d9c4d7d7f4222
+adatam: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=dc0b872f20faa21904fb38987dc6c13433cdb70b442ae77b7b3d9c4d7d7f4222
+silo_nobo: /home/ubuntu/ccbench-adaTAM/build_release/silo/silo_without_backoff sha256=dc0b872f20faa21904fb38987dc6c13433cdb70b442ae77b7b3d9c4d7d7f4222
+silo_bo: /home/ubuntu/ccbench-adaTAM/build_release/silo/silo_with_backoff sha256=fa007fc3c20de98c06ccd6b77f9d87f15b5d6da75cab8fb1d669c37916b81c52
+cicada: /home/ubuntu/ccbench-adaTAM/build_release/cc/cicada/ycsb_cicada.exe sha256=d926b4a7e99d825f0e35382764e22ad98553471d9d95cb8cd22214a8b6bef256
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/ycsb_ermia.exe sha256=3e88d3cb65a09d794acf915bb9d34e1073d700be34c1987538904a7d9cc7bf69
+extime=10 runs=2 methods=['metis_v2'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=9fb74401285d4c82b165951144e0bc50556d0cd05a664546c30ee6e32c266427
+extime=10 runs=2 methods=['metis_v2'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=3c695aa0d1a1c401cee88c757c3c386d7ececaf7e77a5a935f52e5ed5c7497de
+extime=10 runs=2 methods=['adatam_default'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+adatam_default: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=3c695aa0d1a1c401cee88c757c3c386d7ececaf7e77a5a935f52e5ed5c7497de
+extime=10 runs=2 methods=['metis_v2'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=d0cecd161255c38f7fba73bd42f5748260ea0b65f76bf10f0ff5495a948bdfe6
+extime=10 runs=2 methods=['metis_v2'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=c2f54bd1737cb687e55726e57ee763c7a24d1d18993e51f6c2617a99e68028e9
+extime=10 runs=2 methods=['silo_bo', 'cicada', 'ermia'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+silo_bo: /home/ubuntu/ccbench-adaTAM/build_release/silo/silo_with_backoff sha256=d8b7c145991d86a485d43de39bae88abde21c150cdd9face99269796627ff544
+cicada: /home/ubuntu/ccbench-adaTAM/build_release/cc/cicada/ycsb_cicada.exe sha256=36e8bd1abb16ee8443744ca1913f9f634933dd32ee4169f2bbf99b090cf6ae08
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/ycsb_ermia.exe sha256=759f6ba94cb114c67d848e5fe5e1c7e034e25fe48074a0cb5bb0a7c7803cd93e
+extime=10 runs=2 methods=['silo_bo_tuned'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+silo_bo_tuned: /home/ubuntu/ccbench-adaTAM/build_release/silo/silo_with_backoff sha256=d8b7c145991d86a485d43de39bae88abde21c150cdd9face99269796627ff544
+extime=10 runs=2 methods=['silo_cbo_tuned', 'cicada', 'ermia'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+silo_cbo_tuned: /home/ubuntu/ccbench-adaTAM/build_release/silo/silo_with_backoff sha256=399d6f740d555c0732d3734ab996900605814464eb2082cbb51568552e54a38d
+cicada: /home/ubuntu/ccbench-adaTAM/build_release/cc/cicada/ycsb_cicada.exe sha256=b6902318ab36b0b0104c26c7e3692ab0a1ea7005975a1b7d3fed1cf5f4889fc4
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/ycsb_ermia.exe sha256=11300bfd72fb807c7fa11f9382a979d2518b4be2f5905e7289a36b58e9e80385
+extime=10 runs=2 methods=['ermia'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/ycsb_ermia.exe sha256=11300bfd72fb807c7fa11f9382a979d2518b4be2f5905e7289a36b58e9e80385
+extime=10 runs=2 methods=['ermia'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+ermia: /home/ubuntu/ccbench-adaTAM/build_release/cc/ermia/ycsb_ermia.exe sha256=11300bfd72fb807c7fa11f9382a979d2518b4be2f5905e7289a36b58e9e80385
+extime=10 runs=2 methods=['metis_v2'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=63c7f8f03476a46ef64372b79e3bbb32f6adc775a9a746f4c5d72d51e4008c5e
+extime=10 runs=4 methods=['metis_v2'] states=['0.7', '0.8', '0.85', '0.9', '0.95', '0.99', '0.999']
+metis_v2: /home/ubuntu/ccbench-adaTAM/build_release/silo/ycsb_metis_paper sha256=63c7f8f03476a46ef64372b79e3bbb32f6adc775a9a746f4c5d72d51e4008c5e

@@ -1,0 +1,63 @@
+#FLAGS_clocks_per_us:	2900
+#FLAGS_epoch_time:	40
+#FLAGS_extime:		30
+#FLAGS_thread_num:	96
+TAM active_threads logs will be written to: "experiments/paper_replication/logs/tam_active_threads_20261103_142840.log"
+#FLAGS_tpcc_num_wh:	96
+#FLAGS_tpcc_num_items:	100000
+#FLAGS_tpcc_item_zipf_enable:	false
+#FLAGS_tpcc_active_warehouse_count:	16
+#FLAGS_tpcc_hot_item_count:	100
+#FLAGS_tpcc_hot_item_ratio:	0.000000
+#FLAGS_tpcc_home_warehouse_assignment:	random_per_transaction
+#FLAGS_tpcc_home_warehouse_seed:	1
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_hot_district_count:	10
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_retry_same_type:	true
+[start] load.
+[end] load.
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 0: KEY_SIZE 8: MASSTREE_USE 1: NO_WAIT_LOCKING_IN_VALIDATION 1: PARTITION_TABLE 0: PROCEDURE_SORT 0: SLEEP_READ_PHASE 0: VAL_SIZE 4: WAL 0
+actual_extime:	30
+success_forwarding_:	0
+abort_counts_:	6919621
+batch_abort_counts_:	0
+commit_counts_:	10971760
+batch_commit_counts_:	0
+maxrss:	42196168 kB
+abort_rate:	0.3868
+batch_abort_rate:	-nan
+latency[ns]:	262492.3098
+throughput[tps]:	365725
+Details per transaction type:
+  Transaction type: NewOrder
+    commits: 4933885
+    aborts: 1749396
+    abort rate: 0.2618
+    latency[us]: 0.00
+  Transaction type: Payment
+    commits: 4719571
+    aborts: 182336
+    abort rate: 0.0372
+    latency[us]: 0.00
+  Transaction type: OrderStatus
+    commits: 439686
+    aborts: 45
+    abort rate: 0.0001
+    latency[us]: 0.00
+  Transaction type: Delivery
+    commits: 439531
+    aborts: 4346293
+    abort rate: 0.9082
+    latency[us]: 0.00
+  Transaction type: StockLevel
+    commits: 439087
+    aborts: 641551
+    abort rate: 0.5937
+    latency[us]: 0.00
+  Summary: 4933885,1749396,4719571,182336,439686,45,439531,4346293,439087,641551,
+  All transaction total latencies: 0,0,0,0,0,

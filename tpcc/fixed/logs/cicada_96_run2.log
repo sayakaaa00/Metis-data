@@ -1,0 +1,69 @@
+#FLAGS_clocks_per_us:			2900
+#FLAGS_extime:				30
+#FLAGS_gc_inter_us:			1000000000
+#FLAGS_group_commit:			0
+#FLAGS_group_commit_timeout_us:		2
+#FLAGS_io_time_ns:			5
+#FLAGS_pre_reserve_version:		10000
+#FLAGS_p_wal:				0
+#FLAGS_s_wal:				0
+#FLAGS_thread_num:			96
+#FLAGS_ycsb:				1
+#FLAGS_worker1_insert_delay_rphase_us:	0
+#FLAGS_tpcc_num_wh:	96
+#FLAGS_tpcc_num_items:	100000
+#FLAGS_tpcc_item_zipf_enable:	false
+#FLAGS_tpcc_active_warehouse_count:	96
+#FLAGS_tpcc_hot_item_count:	100
+#FLAGS_tpcc_hot_item_ratio:	0.000000
+#FLAGS_tpcc_home_warehouse_assignment:	random_per_transaction
+#FLAGS_tpcc_home_warehouse_seed:	1
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_hot_district_count:	10
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_retry_same_type:	true
+[start] load.
+[end] load.
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 1: INLINE_VERSION_OPT 0: INLINE_VERSION_PROMOTION 1: MASSTREE_USE 1: PARTITION_TABLE 0: REUSE_VERSION 1: SINGLE_EXEC 0: KEY_SIZE 8: VAL_SIZE 4: WRITE_LATEST_ONLY 0: WORKER1_INSERT_DELAY_RPHASE 0
+success_forwarding_:	0
+abort_counts_:	807188
+batch_abort_counts_:	0
+commit_counts_:	6715447
+batch_commit_counts_:	0
+maxrss:	109339412 kB
+abort_rate:	0.1073
+batch_abort_rate:	-nan
+latency[ns]:	428862.4424
+throughput[tps]:	223848
+Details per transaction type:
+  Transaction type: NewOrder
+    commits: 3021152
+    aborts: 150329
+    abort rate: 0.0474
+    latency[us]: 0.00
+  Transaction type: Payment
+    commits: 2888094
+    aborts: 48103
+    abort rate: 0.0164
+    latency[us]: 0.00
+  Transaction type: OrderStatus
+    commits: 267567
+    aborts: 8
+    abort rate: 0.0000
+    latency[us]: 0.00
+  Transaction type: Delivery
+    commits: 269230
+    aborts: 589355
+    abort rate: 0.6864
+    latency[us]: 0.00
+  Transaction type: StockLevel
+    commits: 269404
+    aborts: 19393
+    abort rate: 0.0672
+    latency[us]: 0.00
+  Summary: 3021152,150329,2888094,48103,267567,8,269230,589355,269404,19393,
+  All transaction total latencies: 0,0,0,0,0,

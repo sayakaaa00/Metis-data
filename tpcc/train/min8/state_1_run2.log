@@ -1,0 +1,63 @@
+#FLAGS_clocks_per_us:	2900
+#FLAGS_epoch_time:	40
+#FLAGS_extime:		30
+#FLAGS_thread_num:	96
+TAM active_threads logs will be written to: "experiments/paper_replication/logs/tam_active_threads_20261103_081845.log"
+#FLAGS_tpcc_num_wh:	96
+#FLAGS_tpcc_num_items:	100000
+#FLAGS_tpcc_item_zipf_enable:	false
+#FLAGS_tpcc_active_warehouse_count:	1
+#FLAGS_tpcc_hot_item_count:	100
+#FLAGS_tpcc_hot_item_ratio:	0.000000
+#FLAGS_tpcc_home_warehouse_assignment:	random_per_transaction
+#FLAGS_tpcc_home_warehouse_seed:	1
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_hot_district_count:	10
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_retry_same_type:	true
+[start] load.
+[end] load.
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 0: KEY_SIZE 8: MASSTREE_USE 1: NO_WAIT_LOCKING_IN_VALIDATION 1: PARTITION_TABLE 0: PROCEDURE_SORT 0: SLEEP_READ_PHASE 0: VAL_SIZE 4: WAL 0
+actual_extime:	30
+success_forwarding_:	0
+abort_counts_:	6423629
+batch_abort_counts_:	0
+commit_counts_:	1399499
+batch_commit_counts_:	0
+maxrss:	23467472 kB
+abort_rate:	0.8211
+batch_abort_rate:	-nan
+latency[ns]:	2057921.9276
+throughput[tps]:	46649
+Details per transaction type:
+  Transaction type: NewOrder
+    commits: 629386
+    aborts: 531637
+    abort rate: 0.4579
+    latency[us]: 0.00
+  Transaction type: Payment
+    commits: 602539
+    aborts: 15255
+    abort rate: 0.0247
+    latency[us]: 0.00
+  Transaction type: OrderStatus
+    commits: 55971
+    aborts: 9
+    abort rate: 0.0002
+    latency[us]: 0.00
+  Transaction type: Delivery
+    commits: 55618
+    aborts: 5770446
+    abort rate: 0.9905
+    latency[us]: 0.00
+  Transaction type: StockLevel
+    commits: 55985
+    aborts: 106282
+    abort rate: 0.6550
+    latency[us]: 0.00
+  Summary: 629386,531637,602539,15255,55971,9,55618,5770446,55985,106282,
+  All transaction total latencies: 0,0,0,0,0,

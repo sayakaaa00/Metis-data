@@ -1,0 +1,11 @@
+schedule,method,run,tps,abort_rate
+Y1,silo_nobo,1,1980517,0.8828
+Y1,silo_nobo,2,1862700,0.8792
+Y1,silo_cbo_tuned,1,2858750,0.5805
+Y1,silo_cbo_tuned,2,2894057,0.5909
+Y1,cicada,1,1890492,0.6475
+Y1,ermia,1,586723,0.6038
+Y1,ermia,2,587413,0.5911
+Y1,cicada,2,2626286,0.6572
+Y1,cicada,3,2376426,0.7176
+Y1,cicada,4,2756770,0.6307

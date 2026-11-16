@@ -1,0 +1,28 @@
+#FLAGS_clocks_per_us:			2900
+#FLAGS_extime:				10
+#FLAGS_gc_inter_us:			10
+#FLAGS_group_commit:			0
+#FLAGS_group_commit_timeout_us:		2
+#FLAGS_io_time_ns:			5
+#FLAGS_pre_reserve_version:		10000
+#FLAGS_p_wal:				0
+#FLAGS_s_wal:				0
+#FLAGS_thread_num:			96
+#FLAGS_ycsb:				1
+#FLAGS_worker1_insert_delay_rphase_us:	0
+#FLAGS_ycsb_max_ope:	10
+#FLAGS_ycsb_rmw:	0
+#FLAGS_ycsb_rratio:	50
+#FLAGS_ycsb_tuple_num:	10000
+#FLAGS_ycsb_zipf_skew:	0.9
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 1: INLINE_VERSION_OPT 0: INLINE_VERSION_PROMOTION 1: MASSTREE_USE 1: PARTITION_TABLE 0: REUSE_VERSION 1: SINGLE_EXEC 0: KEY_SIZE 8: VAL_SIZE 4: WRITE_LATEST_ONLY 0: WORKER1_INSERT_DELAY_RPHASE 0
+abort_counts_:	57659356
+batch_abort_counts_:	0
+commit_counts_:	7512112
+batch_commit_counts_:	0
+maxrss:	436416 kB
+abort_rate:	0.8847
+batch_abort_rate:	-nan
+latency[ns]:	127793.6558
+throughput[tps]:	751211
+throughput[ops]:	7512112

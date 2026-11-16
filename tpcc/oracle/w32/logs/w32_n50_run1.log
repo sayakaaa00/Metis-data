@@ -1,0 +1,63 @@
+#FLAGS_clocks_per_us:	2900
+#FLAGS_epoch_time:	40
+#FLAGS_extime:		10
+#FLAGS_thread_num:	96
+#FLAGS_tpcc_num_wh:	96
+#FLAGS_tpcc_num_items:	100000
+#FLAGS_tpcc_item_zipf_enable:	false
+#FLAGS_tpcc_active_warehouse_count:	32
+#FLAGS_tpcc_hot_item_count:	100
+#FLAGS_tpcc_hot_item_ratio:	0.000000
+#FLAGS_tpcc_home_warehouse_assignment:	random_per_transaction
+#FLAGS_tpcc_home_warehouse_seed:	1
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_hot_district_count:	10
+#FLAGS_tpcc_hot_transaction_mode:	false
+#FLAGS_tpcc_hot_transaction_ratio:	0.000000
+#FLAGS_tpcc_hot_warehouse_id:	1
+#FLAGS_tpcc_retry_same_type:	true
+[start] load.
+[end] load.
+[th#24]: cannot get order ID by scanning order-secondary with customer ID
+#ShowOptParameters(): ADD_ANALYSIS 0: BACK_OFF 0: KEY_SIZE 8: MASSTREE_USE 1: NO_WAIT_LOCKING_IN_VALIDATION 1: PARTITION_TABLE 0: PROCEDURE_SORT 0: SLEEP_READ_PHASE 0: VAL_SIZE 4: WAL 0
+actual_extime:	10
+success_forwarding_:	0
+abort_counts_:	1960634
+batch_abort_counts_:	0
+commit_counts_:	5658616
+batch_commit_counts_:	0
+maxrss:	31545724 kB
+abort_rate:	0.2573
+batch_abort_rate:	-nan
+latency[ns]:	169652.9713
+throughput[tps]:	565861
+Details per transaction type:
+  Transaction type: NewOrder
+    commits: 2548144
+    aborts: 743223
+    abort rate: 0.2258
+    latency[us]: 0.00
+  Transaction type: Payment
+    commits: 2431262
+    aborts: 76028
+    abort rate: 0.0303
+    latency[us]: 0.00
+  Transaction type: OrderStatus
+    commits: 225828
+    aborts: 16
+    abort rate: 0.0001
+    latency[us]: 0.00
+  Transaction type: Delivery
+    commits: 226955
+    aborts: 881052
+    abort rate: 0.7952
+    latency[us]: 0.00
+  Transaction type: StockLevel
+    commits: 226427
+    aborts: 260315
+    abort rate: 0.5348
+    latency[us]: 0.00
+  Summary: 2548144,743223,2431262,76028,225828,16,226955,881052,226427,260315,
+  All transaction total latencies: 0,0,0,0,0,
