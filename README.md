@@ -7,7 +7,7 @@ scripts, and the figure scripts are in
 includes this repository as the submodule `experiments/data/`.
 `experiments/figures/make_figures.sh` regenerates every figure of the
 paper from this repository, and the output matches the paper's figures pixel for pixel. The experiment
-scripts in `experiments/` write new runs in the same layout.
+scripts in `experiments/run/` write new runs in the same layout.
 
 Only the runs that the paper's figures and numbers use are included. Log files
 are copied unchanged from the working directory in which they were measured;
