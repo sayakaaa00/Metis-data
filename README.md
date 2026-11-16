@@ -13,37 +13,6 @@ some are renamed to a common pattern. Result CSVs are filtered or concatenated
 by row (header and values unchanged). `MANIFEST.tsv` lists the origin of every
 directory and file.
 
-## Figures of the paper
-
-The paper's figures that show the performance of Metis, as they appear in the
-paper. [figures/pdf/](figures/pdf) holds the PDFs included by the paper. The
-data and the script behind each figure are listed in
-[Data and scripts of the figures](#data-and-scripts-of-the-figures).
-
-### Fig. 7: Throughput across contention levels: (a) YCSB, (b) TPC-C
-
-<img src="figures/fig07.png" width="480">
-
-### Fig. 8: Active thread count of Metis and hill climbing in the first 150 control periods: (a) YCSB, (b) TPC-C
-
-<img src="figures/fig08.png" width="1000">
-
-### Fig. 9: Throughput over time on dynamic workloads: (a) YCSB Y1, (b) TPC-C D1
-
-<img src="figures/fig09.png" width="480">
-
-### Fig. 10: Throughput per control period in the runs of Fig. 8: (a) YCSB, (b) TPC-C
-
-<img src="figures/fig10.png" width="1000">
-
-### Fig. 11: Active thread count on dynamic workloads: (a) YCSB Y4, (b) TPC-C D11
-
-<img src="figures/fig11.png" width="1000">
-
-### Fig. 12: Throughput across contention levels in MySQL: (a) YCSB, (b) TPC-C
-
-<img src="figures/fig12.png" width="470">
-
 ## Machine
 
 AWS, 2 × Intel Xeon Platinum 8375C (48 physical cores, 96 logical CPUs, 2 NUMA
@@ -139,9 +108,11 @@ run 2; run 1 stops committing at 38 s). Numbers in the text are means of the two
 The MySQL experiments are in
 [Tatzhiro/MySQL-Metis-experiments](https://github.com/Tatzhiro/MySQL-Metis-experiments).
 
-## Data and scripts of the figures
+## Figures of the paper
 
-For every figure above, the data in this repository, the script in
+The paper's figures that show the performance of Metis, as they appear in the
+paper ([figures/pdf/](figures/pdf): the PDFs included by the paper). Below each
+figure are the data in this repository, the script in
 [Metis/experiments/figures](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures)
 that plots it (`experiments/figures/make_figures.sh` runs them all), and the runs it uses.
 The scripts plot the same data as the paper. The paper versions were redrawn
@@ -149,7 +120,9 @@ afterwards: one PDF per benchmark, a separate legend, and adjusted fonts and
 labels. The data is unchanged, except that Fig. 7 adds two series. Fig. 9(b) is
 identical to the script's output.
 
-### Fig. 7
+### Fig. 7: Throughput across contention levels: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig07.png" width="480">
 
 | | |
 |---|---|
@@ -158,7 +131,9 @@ identical to the script's output.
 | Runs | Mean of 2 runs |
 | Note | The script draws Metis, Silo, Cicada, and ERMIA; the paper version also draws Oracle and Silo-BO (`silo_cbo_tuned`) from the same files. |
 
-### Fig. 8
+### Fig. 8: Active thread count of Metis and hill climbing in the first 150 control periods: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig08.png" width="1000">
 
 | | |
 |---|---|
@@ -166,7 +141,9 @@ identical to the script's output.
 | Script | [`plot_eval_static_time.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_static_time.py) |
 | Runs | Run 1 |
 
-### Fig. 9
+### Fig. 9: Throughput over time on dynamic workloads: (a) YCSB Y1, (b) TPC-C D1
+
+<img src="figures/fig09.png" width="480">
 
 | | |
 |---|---|
@@ -174,7 +151,9 @@ identical to the script's output.
 | Script | [`plot_eval_dynamic_tps.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic_tps.py), [`plot_eval_dynamic_tps_tpcc.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic_tps_tpcc.py) |
 | Runs | Run 1, except Cicada in (a) (run 2; run 1 stops committing at 38 s) and Metis in (b) (run 2) |
 
-### Fig. 10
+### Fig. 10: Throughput per control period in the runs of Fig. 8: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig10.png" width="1000">
 
 | | |
 |---|---|
@@ -182,7 +161,9 @@ identical to the script's output.
 | Script | [`plot_eval_static_tps.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_static_tps.py) |
 | Runs | Run 1 |
 
-### Fig. 11
+### Fig. 11: Active thread count on dynamic workloads: (a) YCSB Y4, (b) TPC-C D11
+
+<img src="figures/fig11.png" width="1000">
 
 | | |
 |---|---|
@@ -190,7 +171,9 @@ identical to the script's output.
 | Script | [`plot_eval_dynamic.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic.py) |
 | Runs | Run 1 |
 
-### Fig. 12
+### Fig. 12: Throughput across contention levels in MySQL: (a) YCSB, (b) TPC-C
+
+<img src="figures/fig12.png" width="470">
 
 | | |
 |---|---|
