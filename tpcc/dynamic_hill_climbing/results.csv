@@ -1,5 +1,5 @@
 schedule,method,run,tps,abort_rate
 D11,metis_v2,1,115440,0.5096
-D11,adatam,1,110004,0.5698
-D11,adatam,2,111348,0.5465
+D11,hill_climbing,1,110004,0.5698
+D11,hill_climbing,2,111348,0.5465
 D11,metis_v2,2,116228,0.5226

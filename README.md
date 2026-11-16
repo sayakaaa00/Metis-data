@@ -44,7 +44,7 @@ then the SMT siblings). TSC: 2900 clocks per µs.
 |---|---|
 | `metis_v2`, `metis_v2_lowtrained` | Metis |
 | `metis_v2_norephys` | Metis without re-measuring the physical-core count (`--metis_recheck_physical=false`), used for `Y4` |
-| `adatam` | Hill climbing on the active thread count (step 8 for TPC-C, 4 for YCSB) |
+| `hill_climbing` | Hill climbing on the active thread count (step 8 for TPC-C, 4 for YCSB) |
 | `silo_cbo_tuned` | Silo-BO: Silo with the adaptive backoff of Cicada, tuned (see `*/backoff_adaptive_tuning`) |
 | `silo_nobo` | Silo (all worker threads, no backoff) |
 | `cicada`, `ermia` | Cicada and ERMIA with adaptive backoff |
@@ -53,6 +53,8 @@ then the SMT siblings). TSC: 2900 clocks per µs.
 The flags in the logs use the names from the time of measurement
 (`--metis_v2_*`, `--linucb_model_path`); in ccbench-Metis these are `--metis_*`
 and `--metis_model_path`. Runs of the current scripts write `metis` instead of `metis_v2`.
+Hill-climbing runs are named `hill_climbing` in the CSVs and file names; the log contents and
+flags keep the controller's name at measurement time.
 
 ## Training and models (`min8`, `min6`)
 
@@ -97,7 +99,7 @@ run 2; run 1 stops committing at 38 s). Numbers in the text are means of the two
   over the whole run. `mode_threads` / `mean_threads` summarize the active thread count of Metis and hill-climbing
   runs (empty for the other methods).
 - `*.log`: standard output of the benchmark (flags and final statistics). `*.trace.log`: controller log, with one
-  `[MetisV2]` (Metis) or `[AdaTAM]` (hill climbing) line per decision, `[TAM sample]` lines (active thread count at
+  `[MetisV2]` (Metis) or hill-climbing line per decision (tagged with the controller's name at measurement time), `[TAM sample]` lines (active thread count at
   time `bench_s`), and in some runs `[TPS sample]` lines. `[TAM sample]` is written every 100 ms by default,
   every 200 ms in the TPC-C runs, and every 10 ms in `ycsb/hill_climbing_10ms_log` and
   `ycsb/dynamic_hill_climbing`. Cicada and ERMIA on TPC-C log `[TPC-C interval]` lines instead of `[TPS sample]`.

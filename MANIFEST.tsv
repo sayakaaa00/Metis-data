@@ -1,4 +1,5 @@
 path	source (under ccbench-adaTAM/experiments/ICDE)	note
+*	(all)	hill-climbing runs renamed from the controller's name at measurement time to hill_climbing (CSV method values and log file names; log contents unchanged)
 ycsb/oracle/skew_0.7-0.999	ycsb/oracle_physical_first_20261103	380 files
 ycsb/oracle/skew_0_0.5_0.9	ycsb/oracle_lowskew_20261109	164 files
 tpcc/oracle	tpcc/metis_test/logs/fixed/standard_oracle_8states_20261103	245 files
