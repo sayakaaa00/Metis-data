@@ -1,33 +1,30 @@
 path	source (under ccbench-adaTAM/experiments/ICDE)	note
 ycsb/oracle/skew_0.7-0.999	ycsb/oracle_physical_first_20261103	380 files
-ycsb/oracle/skew_0-0.5	ycsb/oracle_lowskew_20261109	164 files
+ycsb/oracle/skew_0_0.5_0.9	ycsb/oracle_lowskew_20261109	164 files
 tpcc/oracle	tpcc/metis_test/logs/fixed/standard_oracle_8states_20261103	245 files
 tpcc/train/min8	metis_v2/tpcc/A_min8_20261108/train	48 files
 tpcc/models/min8	metis_v2/tpcc/A_min8_20261108/models	9 files
 tpcc/train/min6	metis_v2/tpcc/A/train	48 files
-tpcc/models/min6	metis_v2/tpcc/A/models	9 files
 ycsb/train/min8	metis_v2/ycsb/A_min8_20261108/train	42 files
 ycsb/models/min8	metis_v2/ycsb/A_min8_20261108/models	8 files
 ycsb/train/min6	metis_v2/ycsb/A/train	54 files
-ycsb/models/min6	metis_v2/ycsb/A/models	10 files
-ycsb/models/min6_lowskew	metis_v2/ycsb/A/models_lowskew	10 files
+tpcc/models/min6	metis_v2/tpcc/A/models	9 files
+ycsb/models/min6	metis_v2/ycsb/A/models_lowskew	all_with_low.txt renamed to all.txt
+tpcc/fixed/results.csv	metis_v2/tpcc/compare_fixed/results.csv (64 of 160 rows)	
+tpcc/fixed/results_metis.csv	metis_v2/tpcc/compare_fixed/results_before_min6_min8_20261108.csv (16 of 144 rows)	Metis with the min8 models
 tpcc/fixed/config.txt	metis_v2/tpcc/compare_fixed/config.txt	
-tpcc/fixed/results.csv	metis_v2/tpcc/compare_fixed/results.csv	80 of 160 rows
-tpcc/fixed/results_metis.csv	metis_v2/tpcc/compare_fixed/results_before_min6_min8_20261108.csv	16 of 144 rows
-tpcc/fixed/logs	metis_v2/tpcc/compare_fixed/logs	96 files
+tpcc/fixed/logs	metis_v2/tpcc/compare_fixed/logs	80 files
 tpcc/fixed/logs	metis_v2/tpcc/compare_fixed/logs_min8_20261108	Metis (min8) runs
-ycsb/fixed/config.txt	metis_v2/ycsb/compare_fixed/config.txt	
-ycsb/fixed/results.csv	metis_v2/ycsb/compare_fixed/results.csv	70 of 140 rows
-ycsb/fixed/results_metis.csv	metis_v2/ycsb/compare_fixed/results_before_min6_min8_20261108.csv	14 of 126 rows
-ycsb/fixed/logs	metis_v2/ycsb/compare_fixed/logs	84 files
-ycsb/fixed/logs	metis_v2/ycsb/compare_fixed/logs_min8_20261108	Metis (min8) runs
-ycsb/fixed/skew_0-0.5_baselines	metis_v2/additional_20261110b/e4_lowskew	33 files
-ycsb/fixed/skew_0-0.5_metis	metis_v2/additional_20261110b/e4b_lowskew_trained	9 files
-ycsb/fixed/skew_0.7-0.999_metis	metis_v2/additional_20261110b/e4d_highskew_with_low	29 files
-ycsb/fixed/hill_climbing_10ms_log	metis_v2/ycsb/static_fine_20261111	25 files
-tpcc/fixed/ermia_3s/results.csv	ermia_tpcc_diagnosis_20261110/results_3s.csv	
-tpcc/fixed/ermia_3s/run.sh	ermia_tpcc_diagnosis_20261110/run.sh	
+tpcc/fixed/ermia_3s/results.csv	ermia_tpcc_diagnosis_20261110/results_3s.csv	ERMIA, 3-s runs
 tpcc/fixed/ermia_3s/logs	ermia_tpcc_diagnosis_20261110/logs_3s	16 files
+ycsb/fixed/results.csv	metis_v2/ycsb/compare_fixed/results.csv (70 of 140 rows) + metis_v2/additional_20261110b/e4_lowskew/results.csv (20 of 24 rows)	
+ycsb/fixed/results_metis.csv	metis_v2/additional_20261110b/e4b_lowskew_trained/results.csv (4 of 4 rows) + metis_v2/additional_20261110b/e4d_highskew_with_low/results.csv (14 of 14 rows)	Metis with the min6 models (leave-one-out over 9 skews)
+ycsb/fixed/config.txt	metis_v2/ycsb/compare_fixed/config.txt	
+ycsb/fixed/logs	metis_v2/ycsb/compare_fixed/logs	84 files
+ycsb/fixed/logs	metis_v2/additional_20261110b/e4_lowskew/logs	renamed <m>_<s>_<r>.log -> <m>_<s>_run<r>.log
+ycsb/fixed/logs	metis_v2/additional_20261110b/e4b_lowskew_trained/logs	8 files
+ycsb/fixed/logs	metis_v2/additional_20261110b/e4d_highskew_with_low/logs	28 files
+ycsb/hill_climbing_10ms_log	metis_v2/ycsb/static_fine_20261111	25 files
 tpcc/backoff_constant	metis_v2/additional_20261110b/e5_tpcc_fixed_backoff	145 files
 ycsb/backoff_constant	metis_v2/ycsb/backoff_constant_20261110	217 files
 ycsb/backoff_exponential	metis_v2/ycsb/backoff_exponential_20261110	111 files
@@ -35,16 +32,16 @@ tpcc/backoff_adaptive_tuning	metis_v2/tpcc/silo_backoff_tune_v3	49 files
 ycsb/backoff_adaptive_tuning	metis_v2/ycsb/silo_backoff_tune_v3	49 files
 ycsb/breakdown	metis_v2/ycsb/e1_breakdown_20261110	21 files
 tpcc/dynamic/config.txt	metis_v2/tpcc/dynamic/config.txt	
-tpcc/dynamic/results.csv	metis_v2/tpcc/dynamic/results.csv	8 of 79 rows
-tpcc/dynamic/results_metis.csv	metis_v2/tpcc/dynamic/results_min8_20261108.csv	2 of 66 rows
+tpcc/dynamic/results.csv	metis_v2/tpcc/dynamic/results.csv (8 of 79 rows)	
+tpcc/dynamic/results_metis.csv	metis_v2/tpcc/dynamic/results_min8_20261108.csv (2 of 66 rows)	Metis with the min8 models
 tpcc/dynamic/logs	metis_v2/tpcc/dynamic/logs	8 files
 tpcc/dynamic/logs	metis_v2/tpcc/dynamic/logs_min8_20261108	Metis (min8) runs
 ycsb/dynamic/config.txt	metis_v2/ycsb/dynamic/config.txt	
-ycsb/dynamic/results.csv	metis_v2/ycsb/dynamic/results.csv	10 of 34 rows
-ycsb/dynamic/results_metis.csv	metis_v2/ycsb/dynamic/results_min8_20261108.csv	2 of 28 rows
+ycsb/dynamic/results.csv	metis_v2/ycsb/dynamic/results.csv (10 of 34 rows)	
+ycsb/dynamic/results_metis.csv	metis_v2/ycsb/dynamic/results_min8_20261108.csv (2 of 28 rows)	Metis with the min8 models
 ycsb/dynamic/logs	metis_v2/ycsb/dynamic/logs	10 files
 ycsb/dynamic/logs	metis_v2/ycsb/dynamic/logs_min8_20261108	Metis (min8) runs
-tpcc/dynamic_hill_climbing/results.csv	metis_v2/tpcc/dynamic_first100_20261110/results.csv	4 of 20 rows
+tpcc/dynamic_hill_climbing/results.csv	metis_v2/tpcc/dynamic_first100_20261110/results.csv (4 of 20 rows)	
 tpcc/dynamic_hill_climbing/logs	metis_v2/tpcc/dynamic_first100_20261110/logs	8 files
-ycsb/dynamic_hill_climbing/results.csv	metis_v2/ycsb/dynamic_first100_20261110/results.csv	4 of 10 rows
+ycsb/dynamic_hill_climbing/results.csv	metis_v2/ycsb/dynamic_first100_20261110/results.csv (4 of 10 rows)	
 ycsb/dynamic_hill_climbing/logs	metis_v2/ycsb/dynamic_first100_20261110/logs	8 files

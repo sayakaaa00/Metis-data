@@ -1,5 +1,0 @@
-method,state,run,tps,abort_rate,mode_threads,mean_threads
-metis_v2_lowtrained,0,1,18401339,0.1114,96,96.0
-metis_v2_lowtrained,0.5,1,16139104,0.2757,96,96.0
-metis_v2_lowtrained,0,2,18123123,0.1098,94,93.7
-metis_v2_lowtrained,0.5,2,16186393,0.276,96,96.0

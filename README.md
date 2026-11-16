@@ -5,10 +5,15 @@ behind the figures and numbers of the Metis paper. The code, the experiment
 scripts, and the figure scripts are in
 [sayakaaa00/ccbench-Metis](https://github.com/sayakaaa00/ccbench-Metis), which
 includes this repository as the submodule `data/`.
+`experiments/metis/figures/make_figures.sh` regenerates every figure of the
+paper from this repository, and the output matches the paper's figures pixel for pixel. The experiment
+scripts in `experiments/metis/` write new runs in the same layout.
 
-Only the runs that the paper's figures and numbers use are included. Files are
-copied unchanged from the working directory in which they were measured. Result
-CSVs are filtered by row (the header and the values are unchanged). `MANIFEST.tsv` lists the original path of every directory and file.
+Only the runs that the paper's figures and numbers use are included. Log files
+are copied unchanged from the working directory in which they were measured;
+some are renamed to a common pattern. Result CSVs are filtered or concatenated
+by row (header and values unchanged). `MANIFEST.tsv` lists the origin of every
+directory and file.
 
 ## Machine
 
@@ -19,10 +24,11 @@ then the SMT siblings). TSC: 2900 clocks per µs.
 
 ## Workloads
 
-- **TPC-C**: standard mix on 96 warehouses. The home warehouse is drawn from the first
-  `W` warehouses (`W` = 1, 2, 3, 4, 8, 16, 32, 96). Runs last 30 s, and the control period is 200 ms.
-- **YCSB**: 10,000 records, 10 operations per transaction, 50 % reads, Zipf
-  skew 0 to 0.999. Runs last 10 s, and the control period is 10 ms.
+- **TPC-C**: standard mix on 96 warehouses. The home warehouse is drawn from the
+  first `W` warehouses (`W` = 1, 2, 3, 4, 8, 16, 32, 96). Runs last 30 s, and the
+  control period is 200 ms.
+- **YCSB**: 10,000 records, 10 operations per transaction, 50 % reads, Zipf skew 0 to 0.999.
+  Runs last 10 s, and the control period is 10 ms.
 - **Dynamic workloads** (60 s, two changes):
 
   | Name | Benchmark | Change | Paper use |
@@ -36,63 +42,67 @@ then the SMT siblings). TSC: 2900 clocks per µs.
 
 | Name in files | Name in the paper |
 |---|---|
-| `metis_v2`, `metis` | Metis |
-| `metis_v2_norephys` | Metis without re-measuring the physical-core count (`--metis_v2_recheck_physical=false`), used for `Y4` |
+| `metis_v2`, `metis_v2_lowtrained` | Metis |
+| `metis_v2_norephys` | Metis without re-measuring the physical-core count (`--metis_recheck_physical=false`), used for `Y4` |
 | `adatam` | Hill climbing on the active thread count (step 8 for TPC-C, 4 for YCSB) |
 | `silo_cbo_tuned` | Silo-BO: Silo with the adaptive backoff of Cicada, tuned (see `*/backoff_adaptive_tuning`) |
 | `silo_nobo` | Silo (all worker threads, no backoff) |
 | `cicada`, `ermia` | Cicada and ERMIA with adaptive backoff |
 | oracle | Silo with the best fixed active thread count (`*/oracle`) |
 
-The flags in `config.txt` and the logs use the names from the time of measurement
-(`--metis_v2_*`, `--linucb_model_path`). In ccbench-Metis these are
-`--metis_*` and `--metis_model_path`.
+The flags in the logs use the names from the time of measurement
+(`--metis_v2_*`, `--linucb_model_path`); in ccbench-Metis these are `--metis_*`
+and `--metis_model_path`. Runs of the current scripts write `metis` instead of `metis_v2`.
 
 ## Training and models (`min8`, `min6`)
 
-Metis chooses among the even active thread counts. Two sets of training runs exist:
+Metis chooses among even active thread counts. Two training sets exist:
 
-- `*/train/min8`, `*/models/min8`: candidates 8 to 96. These models were used for the Metis runs in
-  `tpcc/fixed`, `ycsb/fixed/results_metis.csv`, `tpcc/dynamic`, and `ycsb/dynamic`.
-- `*/train/min6`, `*/models/min6`: candidates 6 to 96, retrained on 2026-11-08. These models were used for
-  `tpcc/dynamic_hill_climbing` (`models/min6/all.txt`).
-- `ycsb/models/min6_lowskew`: `min6` training runs including skew 0 and 0.5. These models were used for
-  `ycsb/fixed/skew_0-0.5_metis`, `ycsb/fixed/skew_0.7-0.999_metis` (leave-one-out),
-  and `ycsb/dynamic_hill_climbing` (`all_with_low.txt`).
+- `*/train/min8`, `*/models/min8`: candidates 8 to 96. Used for Metis in
+  `tpcc/fixed`, `tpcc/dynamic` (D1), and `ycsb/dynamic` (Y1).
+- `*/train/min6`, `*/models/min6`: candidates 6 to 96. Used for Metis in `ycsb/fixed`,
+  `tpcc/dynamic_hill_climbing` (D11), and `ycsb/dynamic_hill_climbing` (Y4).
+  YCSB `min6` is trained on all nine skews (0 to 0.999).
 
-`train/*/state_<s>_run<r>.txt` holds the statistics of one training run. A model file is the sum of
-these statistics over the training runs. `loo_<s>.txt` leaves state `<s>` out, and the fixed-load runs of
-state `<s>` use it.
+`train/<set>/state_<s>_run<r>.txt` holds the ridge-regression statistics of one
+30-s training run. A model sums them over runs. `all.txt` pools every level, and
+`loo_<s>.txt` leaves level `<s>` out (the static runs of `<s>` use it). The
+models in ccbench-Metis (`experiments/metis/models`) are these files with the
+current header (`metis_model 1 ...` instead of `metis_v2_model 1 A 1 ...`).
 
-## Layout and paper figures
+## Layout
 
-| Directory | Contents | Used for |
+| Directory | Contents | Paper |
 |---|---|---|
-| `ycsb/oracle/skew_0.7-0.999`, `ycsb/oracle/skew_0-0.5` | Throughput of every fixed active thread count (2 runs × 10 s) | Throughput vs. active thread count (Intro, Background), oracle in all YCSB figures |
-| `tpcc/oracle` | The same for TPC-C (`w<W>/results.csv`, `oracle_summary.json`) | Throughput vs. active thread count (Background), oracle in all TPC-C figures |
-| `ycsb/breakdown` | Share of worker time on committed / aborted transactions vs. skew | Breakdown figure (Intro), abort rate in Background |
-| `ycsb/backoff_constant`, `tpcc/backoff_constant` | Silo with a fixed backoff duration (sweep) | Backoff sensitivity (Background), best fixed backoff (Evaluation: thread throttling vs. backoff) |
-| `ycsb/backoff_exponential` | Silo with exponential backoff, sweep of the initial duration | Background ("up to 86 % lower") |
-| `*/backoff_adaptive_tuning` | Silo-BO for 4 update periods × 4 step sizes (`sweep.csv`) | Choice of the Silo-BO setting, Background ("up to 48 % lower") |
-| `*/fixed` | Fixed load: Silo, Silo-BO, Cicada, ERMIA, hill climbing (`results.csv`), Metis (`results_metis.csv`) | Static evaluation figures, hill-climbing comparison |
-| `ycsb/fixed/skew_0-0.5_*`, `ycsb/fixed/skew_0.7-0.999_metis` | YCSB at low skew (baselines and Metis), and Metis at high skew with the low-skew-trained models | Static evaluation (YCSB) |
-| `ycsb/fixed/hill_climbing_10ms_log` | Hill climbing on YCSB with a log entry every control period | Active thread count / throughput over the first 150 control periods |
-| `tpcc/fixed/ermia_3s` | ERMIA on TPC-C | Static evaluation (TPC-C, ERMIA) |
-| `*/dynamic` | `D1`, `Y1`: Metis, Silo-BO, Silo, Cicada, ERMIA | Throughput over time on dynamic workloads |
-| `*/dynamic_hill_climbing` | `D11`, `Y4`: Metis and hill climbing | Active thread count on dynamic workloads (hill-climbing comparison) |
+| `ycsb/oracle/skew_0.7-0.999` | Silo, throughput of every fixed active thread count (2 runs × 10 s) | Throughput vs. active thread count (Background), oracle |
+| `ycsb/oracle/skew_0_0.5_0.9` | The same for skew 0, 0.5, and 0.9 | Introduction (skew 0 and 0.9), oracle at skew 0 and 0.5 |
+| `tpcc/oracle/w<W>` | The same for TPC-C (coarse grid, then 2-step points around the best). `oracle_summary.json` equals the means of `w*/results.csv` | Background, oracle |
+| `ycsb/breakdown` | Worker time on committed / aborted transactions and lock waiting vs. skew | Introduction, Background |
+| `ycsb/backoff_constant`, `tpcc/backoff_constant` | Silo with a fixed backoff duration | Background (sensitivity), best fixed backoff (Evaluation) |
+| `ycsb/backoff_exponential` | Silo with exponential backoff, initial duration swept | Background ("up to 86 % lower") |
+| `*/backoff_adaptive_tuning` | Silo-BO for 4 update periods × 4 steps (`sweep.csv`) | Silo-BO setting, Background ("up to 48 % lower") |
+| `*/fixed` | Static workloads: `results.csv` (Silo, Silo-BO, Cicada, ERMIA, hill climbing) and `results_metis.csv` | Static evaluation |
+| `tpcc/fixed/ermia_3s` | ERMIA on TPC-C (3-s runs) | Static evaluation (TPC-C) |
+| `ycsb/hill_climbing_10ms_log` | Hill climbing on YCSB with an active-thread sample every control period | Comparison with hill climbing (static) |
+| `*/dynamic` | `D1` / `Y1`: Metis (`results_metis.csv`), Silo-BO, Silo, Cicada, ERMIA | Throughput over time |
+| `*/dynamic_hill_climbing` | `D11` / `Y4`: Metis and hill climbing | Comparison with hill climbing (dynamic) |
 | `*/train`, `*/models` | Training runs and models | Every Metis run |
+
+Selected runs in the figures: run 1, except in the TPC-C D1 figure (Metis run 2) and in the YCSB Y1 figure (Cicada
+run 2; run 1 stops committing at 38 s). Numbers in the text are means of the two runs unless stated otherwise.
 
 ## File formats
 
-- `results.csv`: one row per run. Throughput (`tps`, committed transactions per second) and abort rate
-  are averaged over the whole run.
-- `*.log`: standard output of the benchmark (flags and final statistics). `*.trace.log`: controller log,
-  with one `[MetisV2]` (Metis) or `[AdaTAM]` (hill climbing) line per decision, `[TAM sample]` lines
-  (active thread count at time `bench_s`), and in some runs `[TPS sample]` lines. `[TAM sample]` is written every 100 ms by default,
-  every 200 ms in the TPC-C runs, and every 10 ms in `ycsb/fixed/hill_climbing_10ms_log` and `ycsb/dynamic_hill_climbing`.
-- Oracle and some other directories have a `config.txt` with the binary path, its SHA-256, and the git
-  commit of the code at the time of measurement.
-- `config.txt`: the command line and settings of the experiment script.
+- `results.csv`: one row per run. Throughput (`tps`, committed transactions per second) and abort rate are averaged
+  over the whole run. `mode_threads` / `mean_threads` summarize the active thread count of Metis and hill-climbing
+  runs (empty for the other methods).
+- `*.log`: standard output of the benchmark (flags and final statistics). `*.trace.log`: controller log, with one
+  `[MetisV2]` (Metis) or `[AdaTAM]` (hill climbing) line per decision, `[TAM sample]` lines (active thread count at
+  time `bench_s`), and in some runs `[TPS sample]` lines. `[TAM sample]` is written every 100 ms by default,
+  every 200 ms in the TPC-C runs, and every 10 ms in `ycsb/hill_climbing_10ms_log` and
+  `ycsb/dynamic_hill_climbing`. Cicada and ERMIA on TPC-C log `[TPC-C interval]` lines instead of `[TPS sample]`.
+- `config.txt`: settings of the experiment script, and in some directories the binary path, its SHA-256, and
+  the git commit of the code at the time of measurement.
 
 The MySQL experiments are in
 [Tatzhiro/MySQL-Metis-experiments](https://github.com/Tatzhiro/MySQL-Metis-experiments).
