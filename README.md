@@ -55,21 +55,15 @@ the Metis repository these are `--metis_*`, `--metis_model_path`, `--throttle_*`
 Hill-climbing runs are named `hill_climbing` in the CSVs and file names; the log contents and
 flags keep the controller's name at measurement time.
 
-## Training and models (`min8`, `min6`)
+## Training and models
 
-Metis chooses among even active thread counts. Two training sets exist:
-
-- `*/train/min8`, `*/models/min8`: candidates 8 to 96. Used for Metis in
-  `tpcc/fixed`, `tpcc/dynamic` (D1), and `ycsb/dynamic` (Y1).
-- `*/train/min6`, `*/models/min6`: candidates 6 to 96. Used for Metis in `ycsb/fixed`,
-  `tpcc/dynamic_hill_climbing` (D11), and `ycsb/dynamic_hill_climbing` (Y4).
-  YCSB `min6` is trained on all nine skews (0 to 0.999).
-
-`train/<set>/state_<s>_run<r>.txt` holds the ridge-regression statistics of one
-30-s training run. A model sums them over runs. `all.txt` pools every level, and
-`loo_<s>.txt` leaves level `<s>` out (the static runs of `<s>` use it). The
-models in the Metis repository (`experiments/models`) are these files with the
-current header (`metis_model 1 ...` instead of `metis_v2_model 1 A 1 ...`).
+`*/train/<set>/state_<s>_run<r>.txt` holds the ridge-regression statistics of one
+30-s training run, in which Metis moves to random even active thread counts. A
+model (`*/models/<set>/`) sums them over runs: `all.txt` pools every contention
+level, and `loo_<s>.txt` leaves level `<s>` out (the static runs of `<s>` use
+it). The model behind each figure is listed with the figure below. The models in
+the Metis repository (`experiments/models`) are these files with the current
+header (`metis_model 1 ...` instead of `metis_v2_model 1 A 1 ...`).
 
 ## Layout
 
@@ -128,6 +122,7 @@ identical to the script's output.
 |---|---|
 | Data | [ycsb/fixed](ycsb/fixed), [tpcc/fixed](tpcc/fixed) (`results.csv`: baselines; `results_metis.csv`: Metis), [tpcc/fixed/ermia_3s](tpcc/fixed/ermia_3s) (ERMIA on TPC-C), `*/oracle` |
 | Script | [`plot_eval_static.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_static.py) |
+| Model | `ycsb/models/min6/loo_<skew>.txt` (a), `tpcc/models/min8/loo_<W>.txt` (b) |
 | Runs | Mean of 2 runs |
 | Note | The script draws Metis, Silo, Cicada, and ERMIA; the paper version also draws Oracle and Silo-BO (`silo_cbo_tuned`) from the same files. |
 
@@ -139,6 +134,7 @@ identical to the script's output.
 |---|---|
 | Data | [ycsb/fixed/logs](ycsb/fixed/logs) (Metis), [ycsb/hill_climbing_10ms_log](ycsb/hill_climbing_10ms_log), [tpcc/fixed/logs](tpcc/fixed/logs) (`*.trace.log`) |
 | Script | [`plot_eval_static_time.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_static_time.py) |
+| Model | As Fig. 7 |
 | Runs | Run 1 |
 
 ### Fig. 9: Throughput over time on dynamic workloads: (a) YCSB Y1, (b) TPC-C D1
@@ -149,6 +145,7 @@ identical to the script's output.
 |---|---|
 | Data | [ycsb/dynamic](ycsb/dynamic), [tpcc/dynamic](tpcc/dynamic) (`*.log`, `*.trace.log`) |
 | Script | [`plot_eval_dynamic_tps.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic_tps.py), [`plot_eval_dynamic_tps_tpcc.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic_tps_tpcc.py) |
+| Model | `ycsb/models/min8/all.txt` (a), `tpcc/models/min8/all.txt` (b) |
 | Runs | Run 1, except Cicada in (a) (run 2; run 1 stops committing at 38 s) and Metis in (b) (run 2) |
 
 ### Fig. 10: Throughput per control period in the runs of Fig. 8: (a) YCSB, (b) TPC-C
@@ -159,6 +156,7 @@ identical to the script's output.
 |---|---|
 | Data | As Fig. 8 |
 | Script | [`plot_eval_static_tps.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_static_tps.py) |
+| Model | As Fig. 7 |
 | Runs | Run 1 |
 
 ### Fig. 11: Active thread count on dynamic workloads: (a) YCSB Y4, (b) TPC-C D11
@@ -169,6 +167,7 @@ identical to the script's output.
 |---|---|
 | Data | [ycsb/dynamic_hill_climbing](ycsb/dynamic_hill_climbing), [tpcc/dynamic_hill_climbing](tpcc/dynamic_hill_climbing) |
 | Script | [`plot_eval_dynamic.py`](https://github.com/sayakaaa00/Metis/blob/Metis-ICDE/experiments/figures/plot_eval_dynamic.py) |
+| Model | `ycsb/models/min6/all.txt` (a), `tpcc/models/min6/all.txt` (b) |
 | Runs | Run 1 |
 
 ### Fig. 12: Throughput across contention levels in MySQL: (a) YCSB, (b) TPC-C
